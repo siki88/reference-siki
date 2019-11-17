@@ -45,6 +45,7 @@ class DetailCatalogViewController: UIViewController {
 // MARK: SETUP/SETTING
 extension DetailCatalogViewController{
     
+    //  MARK: Setup view
     fileprivate func setupView(){
         if let image = self.detail?.backdrop_path{
             viewModel.imageService?.requestFetchImage(image: image, completion: { (image, error) in
@@ -62,7 +63,7 @@ extension DetailCatalogViewController{
             self.overview.text = overview
         }
         if let watchTrailer = self.detail?.video, watchTrailer != false{
-//            print("WATCH TRAILER: \(watchTrailer)")
+            //watch trailer video - request only false
         }else{
             self.watchTrailer.removeFromSuperview()
         }

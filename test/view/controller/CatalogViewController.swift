@@ -33,7 +33,6 @@ class CatalogViewController: UIViewController {
         super.viewDidLoad()
         attemptFetchCatalog(parameter: "movie/popular", pageParameter: self.page ,localeParameter: String.localeSetting())
         setupActivityIndicator()
-        setupView()
         setupNavigation()
         setupTableView()
         setupSearchBar()
@@ -71,11 +70,6 @@ extension CatalogViewController {
     fileprivate func setupNavigation(){
         self.title = "Movie Catalog"
         self.navigationController?.navigationBar.makeColorNavigationBar()
-    }
-    
-    //  MARK: Setup view
-    fileprivate func setupView(){
-        
     }
     
     //  MARK: Setup table view
@@ -147,11 +141,7 @@ extension CatalogViewController {
 extension CatalogViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let resultsCount = self.results?.count{
-            return resultsCount
-        }else{
-            return 0
-        }
+        return self.results?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
