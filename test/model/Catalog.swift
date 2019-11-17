@@ -15,11 +15,11 @@ struct Catalog: Codable {
     let total_pages: Int?
     let results: [Results]?
     
-    init(page:Int, total_results:Int, total_pages:Int, results:[Results]?) {
-        self.page = page
-        self.total_results = total_results
-        self.total_pages = total_pages
-        self.results = results
+    init(catalog: Catalog) {
+        self.page = catalog.page
+        self.total_results = catalog.total_results
+        self.total_pages = catalog.total_pages
+        self.results = catalog.results
     }
     
     enum CodingKeys: String, CodingKey {

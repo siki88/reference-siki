@@ -109,7 +109,7 @@ extension CatalogViewController {
         viewModel.fetchCatalog(parameter: parameter,pageParameter: pageParameter, localeParameter: localeParameter)
             
             viewModel.updateLoadingStatus = {
-                let _ = self.viewModel.isLoading ? self.statusActiveActivityIndicator(status: true) : self.statusActiveActivityIndicator(status: false)
+                self.viewModel.isLoading ? self.statusActiveActivityIndicator(status: true) : self.statusActiveActivityIndicator(status: false)
             }
             
             viewModel.showAlertClosure = {
